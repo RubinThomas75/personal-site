@@ -8,8 +8,8 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black flex flex-col items-center justify-center p-6">
       {/* Hero Section */}
       <section className="text-center">
-        <h1 className="text-4xl font-bold">Your Name</h1>
-        <p className="text-gray-600 mt-2">Software Engineer | AI Enthusiast</p>
+        <h1 className="text-4xl font-bold">Rubin Thomas</h1>
+        <p className="text-gray-600 mt-2">Software Engineer</p>
       </section>
 
       {/* Links */}
