@@ -73,7 +73,7 @@ export default function MedDemo() {
 
           {/* Current Command Line */}
           <div className="flex">
-            <span className="mr-2">>> </span>
+            <span className="mr-2">&gt;&gt; </span>
             <input
               ref={inputRef}
               className="bg-black text-green-400 font-mono text-lg outline-none border-none w-full caret-green-400"

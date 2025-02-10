@@ -10,7 +10,7 @@ export default function Home() {
       <section className="text-center max-w-3xl mx-auto">
         <p className="text-gray-600 mt-2 text-lg">Software Engineer</p>
         <p className="text-gray-700 mt-4 text-md leading-relaxed">
-    Hi! Welcome to my site. <br /> I'm currently working on travel infrastructure at Google.
+        {"Hi! Welcome to my site."} <br /> {"I'm currently working on travel infrastructure at Google."}
   </p>
       </section>
 
