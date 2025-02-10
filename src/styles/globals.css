@@ -2,8 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure the whole site is white */
-body {
+/* Ensure full-width white background */
+html, body {
+  background-color: #fff !important;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centered layout with wider max width */
+.main-content {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px 20px;
   background-color: white;
-  color: black;
+}
+
+/* Ensure links are styled properly */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
 }

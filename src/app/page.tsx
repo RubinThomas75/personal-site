@@ -5,38 +5,38 @@ import ProjectCard from '@/components/ProjectCard';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-black flex flex-col items-center justify-center p-6">
+    <div className="flex flex-col items-center min-h-screen px-6">
       {/* Hero Section */}
-      <section className="text-center">
-        <h1 className="text-4xl font-bold">Rubin Thomas</h1>
-        <p className="text-gray-600 mt-2">Software Engineer</p>
+      <section className="text-center max-w-3xl mx-auto">
+        <p className="text-gray-600 mt-2 text-lg">Software Engineer</p>
+        <p className="text-gray-700 mt-4 text-md leading-relaxed">
+    Hi! Welcome to my site. <br /> I'm currently working on travel infrastructure at Google.
+  </p>
       </section>
 
       {/* Links */}
       <section className="mt-6 flex space-x-6">
-        <Link href="https://github.com/yourgithub" className="text-blue-500 hover:underline">GitHub</Link>
-        <Link href="https://linkedin.com/in/yourlinkedin" className="text-blue-500 hover:underline">LinkedIn</Link>
-        <Link href="/projects" className="text-blue-500 hover:underline">Projects</Link>
+        <Link href="https://github.com/yourgithub" className="text-blue-600 hover:underline text-lg">GitHub</Link>
+        <Link href="https://linkedin.com/in/yourlinkedin" className="text-blue-600 hover:underline text-lg">LinkedIn</Link>
       </section>
 
       {/* Projects */}
-      <section className="mt-12 space-y-4">
-        <h2 className="text-xl font-semibold text-center">Projects</h2>
-        <ProjectCard 
-          name="AI-Powered Tool" 
-          description="Built an AI tool that does X."
-          link="https://github.com/yourrepo"
-        />
-        <ProjectCard 
-          name="Minimalist UI" 
-          description="Created a clean UI framework."
-          link="https://github.com/yourrepo"
-        />
-        <ProjectCard 
-          name="Automated Pipeline" 
-          description="Developed an efficient automation system."
-          link="https://github.com/yourrepo"
-        />
+      <section className="mt-12 w-full max-w-4xl px-4">
+        <h2 className="text-2xl font-semibold text-center mb-4">Projects</h2>
+        <div className="space-y-4">
+          <ProjectCard 
+            name="ELI5 Meditron" 
+            description="Fine tuned Meditron 7B to answer ELi5 style medical questions. Try out the demo!"
+            link="/meddemo"
+            buttonText='View Demo'
+          />
+          <ProjectCard 
+            name="DeepVariant Case Study" 
+            description="Fine-tuned DeepVariant on RNA sequencing data to evaluate effect on variant calling accuracy in low-coverage regions."
+            link="https://github.com/yourrepo"
+            buttonText='View on Github'
+          />
+        </div>
       </section>
     </div>
   );
