@@ -32,6 +32,7 @@ export default function MedDemo() {
       // Append command and API response separately
       setHistory((prev) => [...prev, `>> ${command}`, data.response]);
     } catch (error) {
+      console.error("Error contacting backend:", error); 
       setHistory((prev) => [...prev, `>> ${command}`, "Error contacting backend."]);
     }
   };
