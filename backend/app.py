@@ -1,28 +1,38 @@
-from flask import Flask, request, jsonify
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 import requests
-from flask_cors import CORS
+from fastapi.middleware.cors import CORSMiddleware
 
-app = Flask(__name__)
-CORS(app)  # Allows frontend (Next.js) to communicate with Flask API
+app = FastAPI()
 
-# Placeholder: Replace this with the actual model server URL on GCP when ready
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Placeholder: Replace with actual model server URL on GCP
 GCP_MODEL_URL = "http://your-gcp-gpu-ip:5000/predict"
 
-@app.route('/query', methods=['POST'])
-def query():
+# Define request body model
+class QueryRequest(BaseModel):
+    input: str
+
+@app.post("/query")
+async def query(request: QueryRequest):
     """
-    This endpoint will handle user queries. 
+    This endpoint handles user queries.
     Future implementation:
     - Send `input` to the AI model running on GCP.
     - Receive the model-generated response.
     - Return it to the frontend.
     """
 
-    data = request.json
-    user_input = data.get("input", "").strip()
-
+    user_input = request.input.strip()
     if not user_input:
-        return jsonify({"response": "No input provided"}), 400
+        raise HTTPException(status_code=400, detail="No input provided")
 
     # Placeholder: Replace with actual model call in the future
     # try:
@@ -31,17 +41,16 @@ def query():
     # except requests.RequestException:
     #     model_response = "Failed to reach model server."
 
-    return jsonify({"response": "Not implemented yet"})
+    return {"response": "Not implemented yet"}
 
-@app.route('/health', methods=['GET'])
-def health_check():
+@app.get("/health")
+async def health_check():
     """
     Health check endpoint for monitoring.
     Future implementation:
     - Check if the API is running.
     - Optionally verify if the model is reachable.
     """
-    return jsonify({"status": "API is running", "model_status": "Not implemented yet"}), 200
+    return {"status": "API is running", "model_status": "Not implemented yet"}
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+# Run with: uvicorn filename:app --host 0.0.0.0 --port 5001
